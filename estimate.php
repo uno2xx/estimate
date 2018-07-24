@@ -38,8 +38,8 @@ class Estimate {
 	}
 
 	public function adminScripts() {
-		wp_enqueue_style('estimate_css', plugins_url( 'estimate/assets/estimate.css', dirname(__FILE__) ) );
-		wp_enqueue_script('estimate_js', plugins_url( 'estimate/assets/estimate.js', dirname(__FILE__) ) );
+		wp_enqueue_style('estimate_css', plugins_url( '/assets/estimate.css',  __FILE__ ) );
+		wp_enqueue_script('estimate_js', plugins_url( '/assets/estimate.js',  __FILE__ ) );
 		wp_localize_script('estimate_js', 'EstimateAjax', array( 'ajaxurl' => admin_url('admin-ajax.php') ) );
 	}
 
