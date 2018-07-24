@@ -1,0 +1,97 @@
+table.estimate-table {
+	display: block;
+	width: 100%;
+	border-spacing: 0;
+}
+
+table.estimate-table thead {
+	background-color: black;
+	color: #fff;
+}
+
+table.estimate-table th {
+	padding: 5px 20px;
+	border-collapse: collapse;
+}
+
+table.estimate-table tbody td {
+	text-align: center;
+	border-bottom: solid 1px #ccc;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+div.estimate-row {
+	display: block;
+}
+
+div.estimate-left {
+	display: block;
+	float: left;
+	width: 50%;
+}
+
+div.estimate-right {
+	display: block;
+	float: right;
+	width: 50%;
+}
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+.clearfix { display: inline-block; }
+/* start commented backslash hack \*/
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
+/* close commented backslash hack */
+
+
+div.estimate-form {
+	display: block;
+	width: 90%;
+	padding: 20px;
+	background-color: #fff;
+}
+
+div.estimate-form h4 {
+	font-size: 20px;
+}
+
+div.estimate-form label {
+	display: block;
+	font-weight: 300;
+	font-size: 16px;
+}
+
+div.estimate-form input {
+	width: 90%;
+}
+
+div.estimate-table-container {
+	display: inline-block;
+	padding: 20px;
+	background-color: #fff;
+}
+
+button.estimate-button {
+	border: 0;
+	padding: 10px 15px;
+	color: #fff;
+	background-color: #00b9eb;
+	cursor: pointer;
+}
+
+button.estimate-edit {
+	cursor: pointer;
+    border: 0;
+    color: #fff;
+    background-color: #5b9dd9;
+    line-height: 1;
+    padding: 3px 10px;
+}

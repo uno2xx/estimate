@@ -15,28 +15,40 @@
 /*
  * Plugin constants
  */
-if(!defined('ESTIMATE_URL'))
-	define('ESTIMATE_URL', plugin_dir_url( __FILE__ ));
-if(!defined('ESTIMATE_PATH'))
-	define('ESTIMATE_PATH', plugin_dir_path( __FILE__ ));
+
+include( plugin_dir_path( __FILE__ ) . 'layout/layout.php');
+include( plugin_dir_path( __FILE__ ) . 'database/db.php');
 
 class Estimate {
 
-	public function __construct() {
+	private $adminLayout;
 
+	public function __construct() {	
+		$this->adminLayout = new EstimateAdminLayout();
 		add_action('admin_menu', array($this,'addAdminMenu'));
-
+		add_action('admin_enqueue_scripts', array($this, 'adminScripts'));
 	}
-
 
 	public function addAdminMenu() {
-		add_menu_page( 'Estimate', 'Estimate', 'manage_options', 'estimate', array($this,'test_init') );
+		add_menu_page( 'Estimate', 'Estimate', 'manage_options', 'estimate', array($this, 'loadLayout'), 'dashicons-dashboard');
 	}
 
-	public function test_init(){
-        echo "<h1>Hello World!</h1>";
+	public function loadLayout() {
+		$this->adminLayout->adminLayout();
+	}
+
+	public function adminScripts() {
+		wp_enqueue_style('estimate_css', plugins_url( 'estimate/assets/estimate.css', dirname(__FILE__) ) );
+		wp_enqueue_script('estimate_js', plugins_url( 'estimate/assets/estimate.js', dirname(__FILE__) ) );
+		wp_localize_script('estimate_js', 'EstimateAjax', array( 'ajaxurl' => admin_url('admin-ajax.php') ) );
+	}
+
+	public function createDB() {
+		$db = new EstimateDB();
+		register_activation_hook( __FILE__ , array( $db , 'create' ) );
 	}
 
 }
 
-new Estimate();
+$estimate = new Estimate();
+$estimate->createDB();
