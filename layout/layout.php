@@ -4,12 +4,14 @@ class EstimateAdminLayout {
 
 
 	public $html;
+	public $data;
 
 	public function __construct() {
-		
+
 	}
 
-	public function adminLayout() {
+	public function adminLayout($data) {
+		$this->data = $data;
 	 	$this->addHeader();
 	 	$this->row();
 	 	$this->output();
@@ -42,7 +44,9 @@ class EstimateAdminLayout {
 						<th>Actions</th>
 					</tr>
 				</thead>
-				<tbody></tbody>
+				<tbody>
+				'. $this->loadData() .'
+				</tbody>
 			</table>
 			</div>
 		';
@@ -75,6 +79,23 @@ class EstimateAdminLayout {
 
 	private function output() {
 		echo $this->html;
+	}
+
+	private function loadData() : string {
+		$html = '';
+		foreach ($this->data as $data) {
+			$html .= '
+				<tr>
+					<td>'.$data['id'].'</td>
+					<td class="text-left">'.$data['category_name'].'</td>
+					<td>'.$data['low'].'%</td>
+					<td>'.$data['high'].'%</td>
+					<td><button class="estimate-edit" data-id="'.$data['id'].'">edit</button></td>
+				</tr>
+			';
+		}
+
+		return $html;
 	}
 
 }

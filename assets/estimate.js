@@ -12,13 +12,27 @@ jQuery(function($){
 			'high'	:categoryHigh
 		};
 
-		var html = '<tr>';
-		html += '<td>1</td><td>'+ categoryName +'</td><td>'+ categoryLow +'%</td><td>'+ categoryHigh +'%</td><td><button class="estimate-edit">edit</button></td>';
-		html += '</tr>';
+		
 
-		$('tbody').append(html);
-
-		console.log(data);
+		$.ajax({
+			type: 'POST',
+			url: EstimateAjax.ajaxurl,
+			data: {'action':'insert_estimate',data:data},
+			success: function(response) {
+				alert('Category was successfully added!');
+				var data = JSON.parse(response.data);
+				var html = '<tr>';
+				html += '<td>'+data.id+'</td><td class="text-left">'+ categoryName +'</td><td>'+ categoryLow +'%</td><td>'+ categoryHigh +'%</td><td><button class="estimate-edit" data-id="'+data.id+'">edit</button></td>';
+				html += '</tr>';
+				$('tbody').append(html);
+				clearform();
+			}
+		})
 	});	
-
 });
+
+function clearform() {
+	jQuery('#categoryName').val('');
+	jQuery('#categoryLow').val('');
+	jQuery('#categoryHigh').val('');
+}

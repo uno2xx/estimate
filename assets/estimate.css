@@ -95,3 +95,7 @@ button.estimate-edit {
     line-height: 1;
     padding: 3px 10px;
 }
+
+.text-left {
+	text-align: left!important;
+}

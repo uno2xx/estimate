@@ -1,6 +1,6 @@
 <?php 
 
-class EstimateTable {
+class EstimateModel {
 
 	private $db;
 	private $table;
@@ -19,6 +19,10 @@ class EstimateTable {
 		));
 
 		return $this->db->insert_id;
+	}
+
+	public function list() {
+		return $this->db->get_results("SELECT * FROM $this->table ", ARRAY_A);
 	}
 
 }

@@ -18,15 +18,19 @@
 
 include( plugin_dir_path( __FILE__ ) . 'layout/layout.php');
 include( plugin_dir_path( __FILE__ ) . 'database/db.php');
+include( plugin_dir_path( __FILE__ ) . 'estimatemodel.php');
 
 class Estimate {
 
 	private $adminLayout;
+	private $estimate;
 
 	public function __construct() {	
 		$this->adminLayout = new EstimateAdminLayout();
+		$this->estimate = new EstimateModel();
 		add_action('admin_menu', array($this,'addAdminMenu'));
 		add_action('admin_enqueue_scripts', array($this, 'adminScripts'));
+		add_action('wp_ajax_insert_estimate', array($this, 'insert_estimate'));
 	}
 
 	public function addAdminMenu() {
@@ -34,7 +38,8 @@ class Estimate {
 	}
 
 	public function loadLayout() {
-		$this->adminLayout->adminLayout();
+		$data = $this->estimate->list();
+		$this->adminLayout->adminLayout($data);
 	}
 
 	public function adminScripts() {
@@ -46,6 +51,13 @@ class Estimate {
 	public function createDB() {
 		$db = new EstimateDB();
 		register_activation_hook( __FILE__ , array( $db , 'create' ) );
+	}
+
+	public function insert_estimate() {
+		$response = $this->estimate->insert($_POST['data']);
+		wp_send_json_success(
+            wp_json_encode( ['id'=>$response] )
+        );
 	}
 
 }
