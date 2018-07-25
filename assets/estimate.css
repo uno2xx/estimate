@@ -19,6 +19,8 @@ table.estimate-table tbody td {
 	border-bottom: solid 1px #ccc;
 	padding-top: 15px;
 	padding-bottom: 15px;
+	padding-left: 20px;
+	padding-right: 20px;
 }
 
 div.estimate-row {

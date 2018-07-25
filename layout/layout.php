@@ -38,7 +38,7 @@ class EstimateAdminLayout {
 				<thead>
 					<tr>
 						<th>ID</th>
-						<th>Category Name</th>
+						<th class="text-left">Category Name</th>
 						<th>Low</th>
 						<th>High</th>
 						<th>Actions</th>
