@@ -1,24 +1,26 @@
 <?php
 
-class EstimateAdminLayout {
+class AdminView {
 
 
 	public $html;
 	public $data;
+	public $title;
 
 	public function __construct() {
 
 	}
 
-	public function adminLayout($data) {
+	public function adminLayout(array $data, string $title) {
 		$this->data = $data;
+		$this->title = $title;
 	 	$this->addHeader();
 	 	$this->row();
 	 	$this->output();
 	}
 
 	private function addHeader() {
-		$this->html .= '<h1>Estimate</h1>';
+		$this->html .= '<h1>'. $this->title .'</h1>';
 	}
 
 	private function row() {
