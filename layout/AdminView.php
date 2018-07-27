@@ -92,7 +92,7 @@ class AdminView {
 					<td class="text-left">'.$data['category_name'].'</td>
 					<td>'.$data['low'].'%</td>
 					<td>'.$data['high'].'%</td>
-					<td><button class="estimate-edit" data-id="'.$data['id'].'">edit</button></td>
+					<td><button class="estimate-edit" data-id="'.$data['id'].'">edit</button> <button class="estimate-delete" data-id="'.$data['id'].'">delete</button></td>
 				</tr>
 			';
 		}

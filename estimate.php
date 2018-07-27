@@ -33,7 +33,9 @@ class Estimate {
 		add_action('admin_menu', array($this,'addAdminMenu'));
 		add_action('admin_enqueue_scripts', array($this, 'adminScripts'));
 		add_action('wp_enqueue_scripts', array($this, 'simulatorScripts'));
-		add_action('wp_ajax_insert_estimate', array($this, 'insert_category'));
+		add_action('wp_ajax_insert_category', array($this, 'insert_category'));
+		add_action('wp_ajax_update_category', array($this, 'update_category'));
+		add_action('wp_ajax_delete_category', array($this, 'delete_category'));
 		add_action('wp_ajax_nopriv_get_category', array($this, 'get_category'));
 		add_action('wp_ajax_get_category', array($this, 'get_category'));
 		add_shortcode('milease-simulator', array($this, 'mileaseSimulatorShortcode'));
@@ -52,6 +54,7 @@ class Estimate {
 		wp_enqueue_style('estimate_css', plugins_url( '/assets/estimate.css',  __FILE__ ) );
 		wp_enqueue_script('estimate_js', plugins_url( '/assets/estimate.js',  __FILE__ ) );
 		wp_localize_script('estimate_js', 'EstimateAjax', array( 'ajaxurl' => admin_url('admin-ajax.php') ) );
+		wp_localize_script('estimate_js', 'EstimateExternalAjax', array( 'ajaxurl' => admin_url('admin-ajax.php') ) );
 	}
 
 	public function simulatorScripts() {
@@ -76,6 +79,20 @@ class Estimate {
 		$response = $this->estimate->insert($_POST['data']);
 		wp_send_json_success(
             wp_json_encode( ['id'=>$response] )
+        );
+	}
+
+	public function update_category() {
+		$response = $this->estimate->update($_POST['id'],$_POST['data']);
+		wp_send_json_success(
+            wp_json_encode( $response )
+        );
+	}
+
+	public function delete_category() {
+		$response = $this->estimate->delete($_GET['id']);
+		wp_send_json_success(
+            wp_json_encode( $response )
         );
 	}
 

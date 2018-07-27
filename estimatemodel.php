@@ -29,4 +29,14 @@ class EstimateModel {
 		return $this->db->get_row("SELECT * FROM $this->table WHERE id = ".$id , ARRAY_A);
 	}
 
+	public function update($id, $data) {
+		$this->db->update($this->table,$data,array('id'=>$id));
+		return $this->get($id);
+	}
+
+	public function delete($id) {
+		$this->db->delete($this->table,array('id'=>$id));
+		return array('delete'=>true);
+	}
+
 }

@@ -98,6 +98,15 @@ button.estimate-edit {
     padding: 3px 10px;
 }
 
+button.estimate-delete {
+	cursor: pointer;
+    border: 0;
+    color: #fff;
+    background-color: red;
+    line-height: 1;
+    padding: 3px 10px;
+}
+
 .text-left {
 	text-align: left!important;
 }

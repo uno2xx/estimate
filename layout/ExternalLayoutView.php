@@ -91,7 +91,7 @@ class ExternalLayoutView {
 							<strong>Sales:</strong> $ <span class="sales-value"></span>
 						</div>
 						<div class="milease-sm-6">
-							<strong>Gros:</strong> $ <spa class="gross-value"></span>
+							<strong>Gross Rent:</strong> $ <spa class="gross-value"></span>
 						</div>
 					</div>
 					<div class="milease-row">
