@@ -33,7 +33,9 @@ class Estimate {
 		add_action('admin_menu', array($this,'addAdminMenu'));
 		add_action('admin_enqueue_scripts', array($this, 'adminScripts'));
 		add_action('wp_enqueue_scripts', array($this, 'simulatorScripts'));
-		add_action('wp_ajax_insert_estimate', array($this, 'insert_estimate'));
+		add_action('wp_ajax_insert_estimate', array($this, 'insert_category'));
+		add_action('wp_ajax_nopriv_get_category', array($this, 'get_category'));
+		add_action('wp_ajax_get_category', array($this, 'get_category'));
 		add_shortcode('milease-simulator', array($this, 'mileaseSimulatorShortcode'));
 	}
 
@@ -61,8 +63,8 @@ class Estimate {
 		wp_enqueue_script('estimate_moment', 'https://cdn.jsdelivr.net/momentjs/latest/moment.min.js');
 		wp_enqueue_script('estimate_datepicker', 'https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js');
 		wp_enqueue_script('estimate_gauge', plugins_url( '/assets/external/gauge.min.js',  __FILE__ ) );
-		wp_localize_script('estimate_external_js', 'EstimateExternalAjax', array( 'ajaxurl' => admin_url('admin-ajax.php') ) );
 		wp_enqueue_script('estimate_external_js', plugins_url( '/assets/external/estimate.js',  __FILE__ ) );
+		wp_localize_script('estimate_external_js', 'EstimateExternalAjax', array( 'ajaxurl' => admin_url('admin-ajax.php') ) );
 	}
 
 	public function createDB() {
@@ -70,15 +72,22 @@ class Estimate {
 		register_activation_hook( __FILE__ , array( $db , 'create' ) );
 	}
 
-	public function insert_estimate() {
+	public function insert_category() {
 		$response = $this->estimate->insert($_POST['data']);
 		wp_send_json_success(
             wp_json_encode( ['id'=>$response] )
         );
 	}
 
+	public function get_category() {
+		$response = $this->estimate->get($_GET['id']);
+		wp_send_json_success(
+            wp_json_encode($response)
+        );
+	}
+
 	public function mileaseSimulatorShortcode($atts) {
-		new ExternalLayoutView(self::TITLE);
+		new ExternalLayoutView(self::TITLE, $this->estimate->list());
 	}
 
 }

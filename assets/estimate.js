@@ -17,7 +17,7 @@ jQuery(function($){
 		$.ajax({
 			type: 'POST',
 			url: EstimateAjax.ajaxurl,
-			data: {'action':'insert_estimate',data:data},
+			data: {'action':'insert_category',data:data},
 			success: function(response) {
 				alert('Category was successfully added!');
 				var data = JSON.parse(response.data);
@@ -27,7 +27,7 @@ jQuery(function($){
 				$('tbody').append(html);
 				clearform();
 			}
-		})
+		});
 	});	
 });
 
