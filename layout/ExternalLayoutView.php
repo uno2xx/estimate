@@ -80,23 +80,23 @@ class ExternalLayoutView {
 
 					<div class="milease-row">
 						<div class="milease-sm-6">
-							Shop Name: <span class="shop-name-value"></span>
+							<strong>Shop Name:</strong> <span class="shop-name-value"></span>
 						</div>
 						<div class="milease-sm-6">
-							Category: <span class="category-value"></span>
-						</div>
-					</div>
-					<div class="milease-row">
-						<div class="milease-sm-6">
-							Sales: $ <span class="sales-value"></span>
-						</div>
-						<div class="milease-sm-6">
-							Gros: $ <spa class="gross-value"></span>
+							<strong>Category:</strong> <span class="category-value"></span>
 						</div>
 					</div>
 					<div class="milease-row">
 						<div class="milease-sm-6">
-							Shop Size: <span class="shop-size-value"></span> m<sup>2</sup>
+							<strong>Sales:</strong> $ <span class="sales-value"></span>
+						</div>
+						<div class="milease-sm-6">
+							<strong>Gros:</strong> $ <spa class="gross-value"></span>
+						</div>
+					</div>
+					<div class="milease-row">
+						<div class="milease-sm-6">
+							<strong>Shop Size:</strong> <span class="shop-size-value"></span> m<sup>2</sup>
 						</div>
 					</div>
 				</div>

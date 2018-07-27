@@ -11,7 +11,7 @@ class EstimateModel {
 		$this->table = $this->db->prefix . "estimate_categories";
 	}
 
-	public function insert($data){
+	public function insert($data) {
 		$this->db->insert($this->table, array(
 			'category_name'	=> (string) $data['category_name'],
 			'low'			=> (int) $data['low'],
