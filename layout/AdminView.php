@@ -73,6 +73,7 @@ class AdminView {
 			<input type="text" id="categoryHigh">
 			</p>
 			<p><button class="estimate-button"><span>Save</span> Category</button></p>
+			<small><i>Note: for low and high there is no need to include % on the field</i></small>
 			</div>
 		';
 
