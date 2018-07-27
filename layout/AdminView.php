@@ -33,7 +33,7 @@ class AdminView {
 		';
 	}
 
-	private function addTable() : string {
+	private function addTable() {
 		$table = '
 			<div class="estimate-table-container">
 			<table class="estimate-table">
@@ -56,7 +56,7 @@ class AdminView {
 		return $table;
 	}
 
-	private function form() : string {
+	private function form() {
 		$form = '
 			<div class="estimate-form">
 			<h4><span>Add</span> Category</h4>
@@ -83,7 +83,7 @@ class AdminView {
 		echo $this->html;
 	}
 
-	private function loadData() : string {
+	private function loadData() {
 		$html = '';
 		foreach ($this->data as $data) {
 			$html .= '
