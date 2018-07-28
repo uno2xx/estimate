@@ -37,10 +37,10 @@ $(function(){
 		salesDollar = $('.sales-dollar').val();
 		category = $('.category').val();
 		shopName = $('.shop-name').val();
+		milease.validation();
 
-		if(shopSize == '' || rentDollar == '' || salesDollar == '' || category == '' || shopName == '') {
+		if(shopSize != '' && rentDollar != '' && salesDollar != '' && category != '' && shopName != '') {
 			milease.validation();
-		} else {
 			milease.updateGaugeValue(selectedDate);
 			milease.ocr();
 		}
