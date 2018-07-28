@@ -141,5 +141,5 @@ span.error {
 }
 
 .daterangepicker .drp-calendar {
-	max-width: max-content!important;
+	max-width: 408px!important;
 }
