@@ -104,7 +104,7 @@ class Estimate {
 	}
 
 	public function mileaseSimulatorShortcode($atts) {
-		new ExternalLayoutView(self::TITLE, $this->estimate->list());
+		new ExternalLayoutView(self::TITLE, $this->estimate->listings());
 	}
 
 }
