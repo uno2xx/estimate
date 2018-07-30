@@ -21,7 +21,7 @@ class EstimateModel {
 		return $this->db->insert_id;
 	}
 
-	public function list() {
+	public function listings() {
 		return $this->db->get_results("SELECT * FROM $this->table ", ARRAY_A);
 	}
 
