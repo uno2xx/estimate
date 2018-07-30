@@ -46,7 +46,7 @@ class Estimate {
 	}
 
 	public function loadLayout() {
-		$data = $this->estimate->list();
+		$data = $this->estimate->listings();
 		$this->adminLayout->adminLayout($data, self::TITLE);
 	}
 
