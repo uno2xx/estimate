@@ -80,9 +80,9 @@ function runGauge() {
 		    subColor: '#666666'
 		},
 		staticZones: [
-		   {strokeStyle: "#F03E3E", min: 0, max: 40}, // Red from 100 to 130
-		   {strokeStyle: "#FFDD00", min: 40, max: 80}, // Yellow
-		   {strokeStyle: "#30B32D", min: 80, max: 120}, // Green
+		   {strokeStyle: "#F03E3E", min: 0, max: 24}, // Red from 100 to 130
+		   {strokeStyle: "#FFDD00", min: 24, max: 48}, // Yellow
+		   {strokeStyle: "#30B32D", min: 48, max: 120}, // Green
 		],
 		staticLabels: {
 			font: "10px sans-serif",
@@ -172,7 +172,7 @@ var milease = {
 				var rent = $('.rent-dollar').val();
 				var sales = $('.sales-dollar').val();
 				var defaultHighest = 25;
-				var ocr = rent/sales;
+				var ocr = (rent/sales)*100;
 
 				if(ocr>defaultHighest) {
 					defaultHighest = ocr + 5;

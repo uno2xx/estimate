@@ -18,10 +18,17 @@ class ExternalLayoutView {
 				<div class="milease-form">
 
 					<div class="milease-row">
-						<div class="milease-sm-12">
+						<div class="milease-sm-6">
 							<label class="">Shop Size (m<sup>2</sup>)</label>
 							<input type="text" class="milease-form-control shop-size">
 							<span class="shop-size-error error">Shop size is required</span>
+						</div>
+						<div class="milease-sm-6">
+							<label>Lease in months</label>
+							<div class="milease-form-group">
+								<label class="milease-calender-label"><i class="fas fa-calendar-alt"></i></label>
+								<input type="text" class="milease-calender">
+							</div>
 						</div>
 					</div>
 
@@ -53,16 +60,6 @@ class ExternalLayoutView {
 							<label class="">Shop Name</label>
 							<input type="text" class="milease-form-control shop-name">
 							<span class="shop-name-error error">Shop name is required</span>
-						</div>
-					</div>
-
-					<div class="milease-row">
-						<div class="milease-sm-12">
-							<label>Lease in months</label>
-							<div class="milease-form-group">
-								<label class="milease-calender-label"><i class="fas fa-calendar-alt"></i></label>
-								<input type="text" class="milease-calender">
-							</div>
 						</div>
 					</div>
 					<button class="milease-button">CALCULATE</button>
