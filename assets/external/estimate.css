@@ -142,3 +142,27 @@ span.error {
 .daterangepicker .drp-calendar {
 	max-width: 408px!important;
 }
+
+.daterangepicker.ltr.single.auto-apply.opensright.show-calendar {
+    top: 459px !important;
+}
+
+.milease-form-group input.milease-calender{
+    height: 46px!important;
+}
+
+.milease-form-group label.milease-calender-label{
+	padding-top: 8px !important;
+}
+
+@media(max-width: 414px) {
+
+	.milease-row{
+		margin-bottom: 0;
+	}
+
+	.milease-sm-6 {
+		width: 100%;
+		margin-bottom: 15px;
+	}
+}

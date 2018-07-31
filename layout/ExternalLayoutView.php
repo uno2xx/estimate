@@ -24,7 +24,7 @@ class ExternalLayoutView {
 							<span class="shop-size-error error">Shop size is required</span>
 						</div>
 						<div class="milease-sm-6">
-							<label>Lease in months</label>
+							<label>Lease Expiry</label>
 							<div class="milease-form-group">
 								<label class="milease-calender-label"><i class="fas fa-calendar-alt"></i></label>
 								<input type="text" class="milease-calender">
@@ -94,6 +94,9 @@ class ExternalLayoutView {
 					<div class="milease-row">
 						<div class="milease-sm-6">
 							<strong>Shop Size:</strong> <span class="shop-size-value"></span> m<sup>2</sup>
+						</div>
+						<div class="milease-sm-6">
+							<p style="font-size: 11px;font-style: italic;padding:5px;border:solid 1px #ccc;background-color: #f2f2f2;width:250px;margin:0 auto;text-align: center;">Benchmarks sourced from Australian Government  for more info <a href="https://www.ato.gov.au/Business/Small-business-benchmarks/In-detail/Benchmarks-A-Z/" target="_blank">click here</a></p>
 						</div>
 					</div>
 				</div>
